@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts",
+    "dev": "npm run services:up && npm run wait-database && prisma migrate dev && tsx src/server.ts",
     "start": "node build/server.js",
     "build": "tsup src --out-dir build",
     "lint:fix": "eslint --fix src",
-    "lint:chekc": "eslint src"
+    "lint:chekc": "eslint src",
+    "services:up": "docker compose up -d",
+    "services:down": "docker compose down",
+    "services:stop": "docker compose stop",
+    "wait-database": "tsx prisma/wait-database.ts"
   },
   "keywords": [],
   "author": "",
