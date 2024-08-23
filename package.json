@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run services:up && npm run wait-database && prisma migrate dev && tsx src/server.ts",
+    "dev": "npm run services:up && npm run wait-database && tsx watch src/server.ts",
     "start": "node build/server.js",
     "build": "tsup src --out-dir build",
     "lint:fix": "eslint --fix src",
