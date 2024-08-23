@@ -5,7 +5,6 @@ import { PrismaUsersRepository } from '@/repositories/prisma/prisma-users-reposi
 import { UserAlreadyExistsError } from '@/use-cases/errors/user-alredy-exists'
 
 export async function register(request: FastifyRequest, reply: FastifyReply) {
-  console.log('POST /users')
   const registerBodySchema = z.object({
     name: z.string(),
     email: z.string().email(),
@@ -23,7 +22,7 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
       return reply.status(409).send({ message: error.message })
     }
 
-    return reply.status(500).send()
+    throw error
   }
 
   return reply.status(201).send()
