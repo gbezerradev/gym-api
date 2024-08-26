@@ -1,6 +1,6 @@
 import { it, expect, describe, beforeEach } from 'vitest'
 import { InMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gyms-repository'
-import { SearchGymUseCase } from './search-gym'
+import { SearchGymUseCase } from './search-gyms'
 import { Prisma } from '@prisma/client'
 
 let gymsRepository: InMemoryGymsRepository
